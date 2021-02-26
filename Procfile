@@ -1,1 +1,1 @@
-web: node status.js
+web: node server.js
