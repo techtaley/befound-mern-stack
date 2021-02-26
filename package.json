@@ -1,0 +1,34 @@
+{
+  "name": "befound-backend",
+  "version": "1.0.0",
+  "description": "Befound Database Backend",
+  "main": "server.js",
+  "scripts": {
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "start": "nodemon server.js",
+    "client": "cd client && npm start", 
+    "dev": "concurrently -n 'server,client' -c 'red,green'\"nodemon server.js\" \"npm run client\""
+  },
+  "keywords": [
+    "database",
+    "backend",
+    "rest",
+    "api",
+    "web",
+    "services"
+  ],
+  "author": "TaLoveous Goodwin",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
+    "create-react-app": "^4.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.17",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+  }
+}
