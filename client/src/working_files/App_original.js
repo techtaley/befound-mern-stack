@@ -12,23 +12,23 @@ class App extends Component {
         results: []    
     }
 
-    // componentDidMount = () => {
-    //     this.getResults()
-    // }
+    componentDidMount = () => {
+        this.getResults()
+    }
 
-    // //not needed 
-    // //get the results from database and display back to the paage from state
-    // getResults = () => {
-    //     axios.get('/api')
-    //     .then((res) => {
-    //         const data = res.data
-    //         this.setState({ results: data})
-    //         console.log('Data has been received')
-    //     }) 
-    //     .catch(() => {
-    //         console.log('Error retreiving data.')
-    //     })
-    // }
+    //not needed 
+    //get the results from database and display back to the paage from state
+    getResults = () => {
+        axios.get('/api')
+        .then((res) => {
+            const data = res.data
+            this.setState({ results: data})
+            console.log('Data has been received')
+        }) 
+        .catch(() => {
+            alert('Error retreiving data.')
+        })
+    }
 
     //when user clicks(event) inside input(target) handleChange triggered
     //handleChange gets values from event.target and updates value in state by name(key)
@@ -39,8 +39,8 @@ class App extends Component {
 
     //when user clicks(event) submit button(target) hangleSubmit triggered
     //handleSubmit takes values from state and stores inside a const payload
-    handleSubmit = e =>{
-        e.preventDefault()
+    handleSubmit = event =>{
+        event.preventDefault()
 
         const payload = {  
             url: this.state.url,
@@ -111,7 +111,7 @@ class App extends Component {
                         <input 
                             type="submit"
                             value='Submit'
-                            className='btn btn-primary btn-block'
+                            className='btn btn-danger btn-block'
                         />
                     </form>
                 </div>

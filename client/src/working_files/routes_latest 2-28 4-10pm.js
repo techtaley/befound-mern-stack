@@ -4,14 +4,16 @@ const modelCopy = require("../models/models")
 
 router.post("/form", async (req, res) => {
     const data = req.body
-    const modelInstance = new modelCopy(data)    
+    //results.push({...modelInstance})  //try this here instead of bottom
+    const modelInstance = new modelCopy(data)
 
+    //.save
     modelInstance.save()
-    .then(data =>{
-        res.json(data)
+    .then(data => {
+        res.status(200).json(data)
     })
     .catch(error =>{
-        res.json(error)
+        res.status(500).json('message', error)
     })
 
     res.send(`${modelInstance} added to the database`) 

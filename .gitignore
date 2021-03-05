@@ -1,4 +1,6 @@
 .env
 node_modules
-test.http
 data.json
+src/working_files
+src/test.http
+test.http
