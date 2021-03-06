@@ -1,7 +1,7 @@
 
 body { color: #333 }
 
-.title{ 
+.title { 
   width: 300px; 
 }
 
@@ -10,8 +10,11 @@ body { color: #333 }
   margin: 50px auto;
 }
 
+hr {
+  width: 50%;
+}
 
-h1.title {
+.title, .title-app, .subtitle-app {
   text-align: center;
 }
 
