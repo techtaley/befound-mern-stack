@@ -16,4 +16,7 @@ Project deployment viewable on Heroku -> https://befound-mern-app.herokuapp.com/
 
 #Endpoint
 
-https://befound-mern-app.herokuapp.com/results
+https://befound-mern-app.herokuapp.com/banner/results
+https://befound-mern-app.herokuapp.com/services/results
+https://befound-mern-app.herokuapp.com/main/results
+
