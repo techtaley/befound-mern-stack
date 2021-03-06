@@ -12,9 +12,7 @@ CICD viewable here on Github.
 
 #Deployment
 
-Project deployment viewable on Heroku -> https://befound-mern-app.herokuapp.com/  
-
-#Endpoint
+#Endpoints
 
 https://befound-mern-app.herokuapp.com/banner/results
 https://befound-mern-app.herokuapp.com/services/results
