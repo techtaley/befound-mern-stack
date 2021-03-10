@@ -11,7 +11,7 @@ Task #2
 Welcome page and authentication login screen.   
 
 Task #3
-Dashboard with menus to edit each section - Banner, Services, Team, and Main.  Collapse each section and cick to reveal.  View of the website in the right panel.
+Dashboard link with menus to edit each section - Banner, Services, Team, and Main.  Collapse each section and cick to reveal.  View of the website in the right panel.
 
 Task #4
 Blog posts with comments
