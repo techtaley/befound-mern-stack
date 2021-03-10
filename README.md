@@ -27,7 +27,7 @@ Viewable on herok - Website Dashboard to add to backend
 
     #Endpoints
 
-    https://befound-mern-app.herokuapp.com/banner/results
-    https://befound-mern-app.herokuapp.com/services/results
-    https://befound-mern-app.herokuapp.com/main/results
+    https://befound-mern-app.herokuapp.com/banner
+    https://befound-mern-app.herokuapp.com/services
+    https://befound-mern-app.herokuapp.com/main
 
