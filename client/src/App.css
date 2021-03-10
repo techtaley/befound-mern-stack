@@ -1,5 +1,17 @@
 
-body { color: #333 }
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  color: #333; 
+}
+
+#results {
+  width: 60%;
+  margin: 0 auto;
+}
 
 .title { 
   width: 300px; 
@@ -8,6 +20,26 @@ body { color: #333 }
 .form-div{
   width: 300px;
   margin: 50px auto;
+}
+
+.navbar {
+  margin: 0 auto;
+  width: 80%;
+  background-color: #666;  
+  padding: 0 !important;
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.nav-link:first-child{
+  background-color: #333;
+  font-weight: bold;
+}
+
+.form-div > h1 {
+  margin-bottom: 50px;
 }
 
 hr {
@@ -21,6 +53,7 @@ hr {
 input.btn {
   width: 125px !important;
   margin: 0 auto 50px auto;
+  font-weight: bold;
 }
 
 

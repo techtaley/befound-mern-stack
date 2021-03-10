@@ -1,30 +1,25 @@
 import React, { Component } from 'react'
-import Banner from './Banner'
-import Services from './Services'
-//import Team from './Team'
-import Main from './Main'
-import './App.css'
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import Login from "./components/Login"
+import Navbar from "./components/Navbar"
+import Banner from "./components/Banner"
+import Services from "./components/Services"
+import Team from "./components/Team"   
+import Main from "./components/Main"  
 
-  //on submit valus from state stored in payload
-class App extends Component {
-  handleSubmit = async (e) => {
-    e.preventDefault()
-  }
+//on submit valus from state stored in payload
+export default class App extends Component {
   render(){
-      return(
-        <div className="main-form">
-            <h1 className="title-app">Website Dashboard</h1>
-            <h5 className="subtitle-app">Submit to only one section at a time, then refresh to submit to another section.</h5>
-
-          <Banner />
-          <hr />
-          <Services /> 
-          <hr />
-
-          <Main />                     
-        </div>
-      )    
+    return(   
+        <Router>
+          <Navbar />
+          <br />
+              <Route path='/login' exact component={Login} />
+              <Route path='/banner' component={Banner} />
+              <Route path='/services' component={Services} />
+              <Route path='/team' component={Team} />
+              <Route path='/main' component={Main} />
+      </Router>          
+    )    
   }
 }
-
-export default App

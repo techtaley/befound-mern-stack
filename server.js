@@ -3,9 +3,11 @@ require('dotenv').config()
 const app = express()
 const mongoose = require('mongoose')
 
-const bannerRoutes = require('./routes/banner')
-const servicesRoutes = require('./routes/services')
-const mainRoutes = require('./routes/main')
+const loginRoute = require('./routes/login')
+const bannerRoute = require('./routes/banner')
+const servicesRoute = require('./routes/services')
+const mainRoute = require('./routes/main')
+const teamRoute = require('./routes/team')
 
 const cors = require('cors')
 
@@ -37,13 +39,16 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 //app represents the server that listens for requests
+
 //HTTP request logger
 app.use(morgan('tiny'))
 app.use(express.json())
 app.use(cors())
 
-app.use('/banner', bannerRoutes)  // /urls in bannerUrls will be appended to /server  /server/form
-app.use('/services', servicesRoutes)  // /urls in servicesUrls will be appended to /server  /server/form
-app.use('/main', mainRoutes)  // /urls in mainUrls will be appended to /server  /server/form
+app.use('/login', loginRoute)  // localhost/dashboard
+app.use('/banner', bannerRoute)  // localhost/banner
+app.use('/services', servicesRoute)  // localhost/services
+app.use('/team', teamRoute)  // localhost/team
+app.use('/main', mainRoute)  // localhost/main
 
 app.listen(PORT, () => console.log(`Server is up and running ${PORT}`))
