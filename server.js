@@ -3,7 +3,7 @@ require('dotenv').config()
 const app = express()
 const mongoose = require('mongoose')
 
-const loginRoute = require('./routes/login')
+//const loginRoute = require('./routes/login')
 const bannerRoute = require('./routes/banner')
 const servicesRoute = require('./routes/services')
 const mainRoute = require('./routes/main')
@@ -45,7 +45,7 @@ app.use(morgan('tiny'))
 app.use(express.json())
 app.use(cors())
 
-app.use('/login', loginRoute)  // localhost/dashboard
+//app.use('/login', loginRoute)  // localhost/dashboard
 app.use('/banner', bannerRoute)  // localhost/banner
 app.use('/services', servicesRoute)  // localhost/services
 app.use('/team', teamRoute)  // localhost/team

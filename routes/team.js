@@ -11,17 +11,17 @@ router.post("/", async (req, res) => {
     })
 
     teamInstance.save()
-    .then(data => res.json(data))
-    .catch(err => res.json(err))
+    .then(data => res.status(201).json(data))
+    .catch(err => res.status(409).json(err))
 
-    res.send(`${teamInstance} added to the database`) 
+    //res.send(`${teamInstance} added to the database`) 
 })
 
 //RETRIEVE all data from database and show on empty "/" route (endpoint)
 router.get('/', (req, res) => {
     Team.find({ })
     .then(data => res.status(201).json(data))
-    .catch(err => res.status(409).json('error: ', err))
+    .catch(err => res.status(409).json(err))
 })
 
 //RETRIEVE - find data by id from database
@@ -32,18 +32,23 @@ router.get('/:id', (req, res) => {
 })
 
 //UPDATE - 1) find data by id from database, 2) update existing field and then 3) save
-router.post('/update/:id', (req, res) => {
-    Team.findById(req.params.id)
-    .then(data => {
-        data.url = req.body.url,
-        data.name = req.body.name,  
-        data.title = req.body.title
+router.put('/update', async (req,res) => {
+    const newName = req.body.newName
+    const newUrl = req.body.newUrl
+    const newTitle = req.body.newTitle
+    const id = req.body.id
 
-        data.save()
-            .then(data => res.status.json(data))
-            .catch(err => res.status(409).json(err))
-    })
-    .catch(err => res.status(409).json(err))
+    try {
+        await Team.findById(id, (err, updatedTeam) => {
+            updatedTitle.url = newUrl
+            updatedTitle.name = newName;
+            updatedTitle.title = newTitle;
+            updatedTitle.save()
+            res.send('update')
+        })
+    } catch(err) {
+        console.log(err)
+    }  
 })
 
 //DELETE - 1) find data by id from database, and 2) delete
@@ -52,6 +57,5 @@ router.delete('/:id', (req, res) => {
     .then(data => res.status(201).json(data))
     .catch(err => res.status(409).json(err))
 })
-
 
 module.exports = router

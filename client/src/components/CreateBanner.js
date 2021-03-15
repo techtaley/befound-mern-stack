@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css' 
-import '../../src/App.css' 
-import BannerList from './BannerList'
 import "bootstrap/dist/css/bootstrap.min.css"
 import axios from 'axios'
-
+import '../../src/App.css' 
 
 export default class CreateBanner extends Component{
     state = {
         url: '',
-        name: '',
+        title: '',
         desc: '',
         link: '',
         entries: []    
     }
-        
+
     //when user clicks(event) inside input(target) handleChange triggered
     //handleChange gets values from e.target and updates value in state by name(key)
     handleChange = e => {
@@ -42,7 +39,7 @@ export default class CreateBanner extends Component{
         })  
         .catch(() => {
             console.log('Internal server error')
-        })     
+        })    
     }    
             
     //then returns state back to empty string or use windows.location = '/' to go homepage
@@ -104,10 +101,6 @@ export default class CreateBanner extends Component{
                         />
                     </form>
                 </div>
-
-            <div className='container'>
-                <BannerList />
-            </div>                   
             </div>
         )
     }

@@ -8,18 +8,54 @@ body {
   color: #333; 
 }
 
-#results {
-  width: 60%;
-  margin: 0 auto;
+.dashboard{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.dashboard-subtitle{
+  margin-top: 30px;
+}
+
+.container {
+  max-width: 600px !important;
+}
+
+.form-div{
+  margin: 50px auto;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.entries {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+
+.update_entries {
+  display: flex;
+  flex-direction: column;
+  width: 250px; 
+  margin-top: 20px;
+}
+
+.update_entries input {
+  margin: 10px 0;
+}
+
+
+h1.heading {
+  text-align: center;
+  margin: 40px 0;
 }
 
 .title { 
   width: 300px; 
-}
-
-.form-div{
-  width: 300px;
-  margin: 50px auto;
 }
 
 .navbar {
@@ -40,6 +76,7 @@ body {
 
 .form-div > h1 {
   margin-bottom: 50px;
+  text-align: center;
 }
 
 hr {
@@ -50,10 +87,83 @@ hr {
   text-align: center;
 }
 
-input.btn {
+.header {
+  font-weight: bold;
+  background-color: #999;
+  padding: 5px 0 5px 2px;
+  text-align: center;
+}
+
+.content { 
+  margin-bottom: 10px;
+  border-top: 1px solid #333;
+}
+
+.content > .banner-update {
+  font-weight: bold;
+}
+
+.entry-img {
+  width: 200px !important;
+  height: 200px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  left: 0 !important;
+
+}
+
+.banner-width {
+  display: flex;
+}
+
+.banner-title {
+  width: 20%;
+}
+
+.banner-url {
+  width: 60%;
+  word-wrap: break-word;  
+  text-align: center;
+}
+
+.banner-desc {
+  width: 20%;
+}
+
+.banner-update {
+  width: 35%;
+}
+
+.btn {
   width: 125px !important;
   margin: 0 auto 50px auto;
   font-weight: bold;
 }
 
+.btn-holder {
+  display: flex;
+  margin-top: 20px;
+}
 
+.update_delete {
+  border: 0px;
+  background-color: #fff;
+  color: #007bff;
+  font-weight: bold;
+}
+.update_delete:hover{
+  text-decoration: underline;
+  color: #10549c;
+}
+
+.delete-btn {
+  border: 0px;
+  background-color: #fff;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.delete-btn:hover{
+  text-decoration: underline;
+  color: #10549c;
+}
