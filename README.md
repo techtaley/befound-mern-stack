@@ -1,10 +1,10 @@
 # befound-mern-stack
 
-Building a SPA using MERN application using mongoDB to hold backend of website dashboard and endpoints. Connect to server using express, created the front-end form to collect data using React, and coding in the Node.js environment. 
+#Specification:
 
-#Specification/Tasks
+Build a SPA using MERN application using mongoDB to hold backend of website, including client dashboard and endpoints. Connect to server using express, created the front-end form to collect data using React, and coding in the Node.js environment. Dockerize API server and React App.
 
-Task #1 - Completed 3/2021
+Task #1 - Completed 2/28/2021
 Create schemas and models for banner images, services, and main website content.  Use HTTP Web services to perform CRUD operation that create REST API enpoint.  
 
 Task #2 - Completed 3/15/2021
