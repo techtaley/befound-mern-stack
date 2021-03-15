@@ -11,7 +11,7 @@ Task #2
 Welcome page and authentication login screen.   
 
 Task #3
-Dashboard with menus to edit each section - Banner, Services, Team, and Main.  Collapse each section and cick to reveal.  View of the website in the right panel.
+Dashboard link with menus to edit each section - Banner, Services, Team, and Main.  Collapse each section and cick to reveal.  View of the website in the right panel.
 
 Task #4
 Blog posts with comments
@@ -27,7 +27,7 @@ Viewable on herok - Website Dashboard to add to backend
 
     #Endpoints
 
-    https://befound-mern-app.herokuapp.com/banner/results
-    https://befound-mern-app.herokuapp.com/services/results
-    https://befound-mern-app.herokuapp.com/main/results
+    https://befound-mern-app.herokuapp.com/banner
+    https://befound-mern-app.herokuapp.com/services
+    https://befound-mern-app.herokuapp.com/main
 
