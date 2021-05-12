@@ -15,7 +15,7 @@ export default function Team(){
     //axios - stringifies JSON data
     useEffect(() => {
         async function fetchEntries(){
-            axios.get('http://localhost:4000/team')
+            axios.get('http://localhost:4000/api/team')
             .then((response) => {
                 const data = response.data
                 getEntries(response.data)
@@ -35,7 +35,7 @@ export default function Team(){
         e.preventDefault()
 
         //axios uses the post method on the url to send data to database from state
-        axios.post('http://localhost:4000/team', {
+        axios.post('http://localhost:4000/api/team', {
             url: url,
             name: name,
             title: title
@@ -59,7 +59,7 @@ export default function Team(){
     }  
     
     const updateEntry = (id) => {
-        axios.put('http://localhost:4000/update', {
+        axios.put('http://localhost:4000/api/team', {
             id: id,
             newUrl: newUrl,
             newName: newName,
@@ -68,7 +68,7 @@ export default function Team(){
     }
 
     const deleteEntry = (id) => {
-        axios.delete(`http://localhost:4000/team/${id}`)
+        axios.delete(`http://localhost:4000/api/team/${id}`)
     }    
 
     return (
@@ -120,7 +120,7 @@ export default function Team(){
                 <h1 className="heading">Update Team</h1>                
                   { entries.map((entry, id) => {
                         return (
-                            <div className="entries" id={id}>
+                            <div className="entries" key={id}>
                                 <div className="new_entries">    
                                     <h5>{entry.name}</h5>
                                     <img className="entry-img" 
@@ -139,7 +139,8 @@ export default function Team(){
                                     <input placeholder="New name" onChange={(e) => {
                                         setNewName(e.target.value)
                                     }} />
-                                                                        <input placeholder="New title" onChange={(e) => {
+
+                                    <input placeholder="New title" onChange={(e) => {
                                         setNewTitle(e.target.value)
                                     }} />  
 

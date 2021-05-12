@@ -31,7 +31,7 @@ export default function Main() {
     //axios - stringifies JSON data
     useEffect(() => {
         async function fetchEntries(){
-            axios.get('http://localhost:4000/main')
+            axios.get('http://localhost:4000/api/main')
             .then((response) => {
                 const data = response.data
                 getEntries(response.data)
@@ -51,7 +51,7 @@ export default function Main() {
         e.preventDefault()
 
         //axios uses the post method on the url to send payload to database
-        axios.post('http://localhost:4000/main',  {  
+        axios.post('http://localhost:4000/api/main',  {  
             firstquote: firstquote, 
             secondquote: secondquote,  
             abouturl: abouturl,
@@ -66,7 +66,19 @@ export default function Main() {
         })
         .then(() => {
             console.log('Data has been sent to the server')
-            resetState()
+            this.setState({
+                firstquote: '', 
+                secondquote: '',  
+                abouturl: '',
+                aboutname: '',
+                abouttitle: '', 
+                aboutdesc: '',
+                videoposter: '', 
+                videourl: '',
+                videodesc: '',
+                videosource: '',
+                contacturl: '',
+            }) 
         })  
         .catch(() => {
             console.log('Internal server error')
@@ -76,21 +88,21 @@ export default function Main() {
     }
 
     //then returns state back to empty string if adding more or use windows.location = '/' to go homepage
-    const resetState = () => {
-        this.setState({
-            firstquote: '', 
-            secondquote: '',  
-            abouturl: '',
-            aboutname: '',
-            abouttitle: '', 
-            aboutdesc: '',
-            videoposter: '', 
-            videourl: '',
-            videodesc: '',
-            videosource: '',
-            contacturl: '',
-        }) 
-    }     
+    // const resetState = () => {
+    //     this.setState({
+    //         firstquote: '', 
+    //         secondquote: '',  
+    //         abouturl: '',
+    //         aboutname: '',
+    //         abouttitle: '', 
+    //         aboutdesc: '',
+    //         videoposter: '', 
+    //         videourl: '',
+    //         videodesc: '',
+    //         videosource: '',
+    //         contacturl: '',
+    //     }) 
+    // }     
 
     const updateEntry = (id) => {
         axios.put('http://localhost:4000/update', {
@@ -245,7 +257,7 @@ export default function Main() {
                 <h1 className="heading">Update Main</h1>                
                   { entries.map((entry, id) => {
                         return (
-                            <div className="entries" id={id}>
+                            <div className="entries" key={id}>
                                 <div className="new_entries">    
                                     <p>{entry.firstquote}</p>
                                     <p>{entry.secondquote}</p>

@@ -2,8 +2,11 @@ const express = require("express")
 const router = express.Router()
 const Team = require("../models/team.model")
 
+//const auth = require('./middleware/auth')
+const auth = require('./auth')
+
 //CREATE 1) new tea, instance from form, 2) save and send to db
-router.post("/", async (req, res) => {
+router.post('/', auth, async (req, res) => {
     const teamInstance = new Team({ 
         url: req.body.url,
         name: req.body.name,
@@ -25,14 +28,14 @@ router.get('/', (req, res) => {
 })
 
 //RETRIEVE - find data by id from database
-router.get('/:id', (req, res) => {
+router.get('/:id', auth, (req, res) => {
     Team.findById(req.params.id)
     .then(data => res.status(201).json(data))
     .catch(err => res.status(409).json(err))
 })
 
 //UPDATE - 1) find data by id from database, 2) update existing field and then 3) save
-router.put('/update', async (req,res) => {
+router.put('/update', auth, async (req,res) => {
     const newName = req.body.newName
     const newUrl = req.body.newUrl
     const newTitle = req.body.newTitle
@@ -52,7 +55,7 @@ router.put('/update', async (req,res) => {
 })
 
 //DELETE - 1) find data by id from database, and 2) delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
     Team.findByIdAndDelete(req.params.id)
     .then(data => res.status(201).json(data))
     .catch(err => res.status(409).json(err))

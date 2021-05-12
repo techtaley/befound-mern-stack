@@ -5,7 +5,6 @@ import BannerList from './BannerList'
 import "bootstrap/dist/css/bootstrap.min.css"
 import axios from 'axios'
 
-
 export default class CreateBanner extends Component{
     state = {
         url: '',
@@ -35,7 +34,7 @@ export default class CreateBanner extends Component{
         }
 
         //axios uses the post method on the url to send payload to database
-        axios.post('http://localhost:4000/banner', payload)
+        axios.post('http://localhost:4000/api/banner', payload)
         .then(() => {
             console.log('Data has been sent to the server')
             this.resetState()
@@ -100,7 +99,7 @@ export default class CreateBanner extends Component{
                         <input 
                             type="submit"
                             value='Add'
-                            className='btn btn-primary btn-block'
+                            className='btn btn-primary btn-block disabled'
                         />
                     </form>
                 </div>

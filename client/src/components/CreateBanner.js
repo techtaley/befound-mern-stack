@@ -32,7 +32,7 @@ export default class CreateBanner extends Component{
         }
 
         //axios uses the post method on the url to send payload to database
-        axios.post('http://localhost:4000/banner', payload)
+        axios.post('http://localhost:4000/api/banner', payload)
         .then(() => {
             console.log('Data has been sent to the server')
             this.resetState()

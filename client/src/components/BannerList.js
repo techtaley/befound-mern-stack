@@ -11,9 +11,16 @@ export default function BannerList(){
     const [ entries, getEntries ] = useState([])
 
     useEffect(() => {
+
+        // const disabled = document.querySelector(".disabled")
+
+        // if(){
+            
+        // }
+
         async function fetchEntries(){
             try {
-                const res = await fetch(`http://localhost:4000/banner`)
+                const res = await fetch(`http://localhost:4000/api/banner`)
                 const data = await res.json()
                 getEntries(data)
                 console.log(data)
@@ -26,7 +33,7 @@ export default function BannerList(){
     }, []) 
 
     return (
-        <div className="">
+        <>
             <h1 className="heading">Update Banner</h1>
                 <div className="header banner-width">
                     <div className="header banner-title">Title</div>
@@ -45,6 +52,6 @@ export default function BannerList(){
                     alt={entry.title}
                 />
             ))}            
-        </div>            
+        </>            
     )
 }

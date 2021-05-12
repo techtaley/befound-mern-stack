@@ -2,8 +2,10 @@ const express = require("express")
 const router = express.Router()
 const Banner = require("../models/banner.model")
 
+const auth = require('./auth')
+
 //CREATE 1) new banner instance from form, 2) save and send to db
-router.post("/", async (req, res) => {
+router.post('/', auth, async (req, res) => {
     const bannerInstance = new Banner({ 
         url: req.body.url,
         title: req.body.title,
@@ -24,14 +26,14 @@ router.get('/', (req, res) => {
 })
 
 //RETRIEVE - find data by id from database
-router.get('/:id', (req, res) => {
+router.get('/:id', auth, (req, res) => {
     Banner.findById(req.params.id)
     .then(data => res.status(201).json(data))
     .catch(err => res.status(409).json(err))
 })
 
 //UPDATE - 1) find data by id from database, 2) update existing field and then 3) save
-router.post('/update/:id', (req, res) => {
+router.post('/update/:id', auth, (req, res) => {
     Banner.findById(req.params.id)
     .then(data => {
         data.url = req.body.url,
@@ -48,7 +50,7 @@ router.post('/update/:id', (req, res) => {
 })
 
 //DELETE - 1) find data by id from database, and 2) delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
     Banner.findByIdAndDelete(req.params.id)
     .then(data => res.status(201).json(data))
     .catch(err => res.status(409).json(err))

@@ -1,34 +1,41 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom"
-
-import Navbar from "./components/Navbar"
+import Nav from './components/Nav'
+import Dashboard from "./components/Dashboard"
 import Banner from "./components/Banner"
 import Services from "./components/Services"
 import Team from "./components/Team"   
 import Main from "./components/Main"  
-import UpdateBanner from "./components/UpdateBanner"
+import Home from "./components/Home"
+
+import Login from "./components/Login"
+import Logout from "./components/Logout"
+import Register from "./components/Register"
 
 //on submit valus from state stored in payload
 export default class App extends Component {
   render(){
-    return(   
-        <Router>
-          <Navbar />
+    return(  
+        <div className="App">
+            <Router>
+                <Nav />
 
-          <div className="dashboard">
-            <h1 className="dashboard-title">Welcome to Befound tempate!</h1>
-            <h5 className="dashboard-subtitle">Login <a href="#">here</a> to edit content.</h5>  
-          </div>  
+                <main>
+                    <Route path="/app" exact component={Home} /> 
+                    <Route path="/app/login" component={Login} />                 
+                    <Route path="/app/logout" component={Logout} />                 
+                    <Route path="/app/register" component={Register} /> 
 
-          <br />
-              <Route path='/banner' component={Banner} />
-              <Route path='/services' component={Services} />
-              <Route path='/team' component={Team} />
-              <Route path='/main' component={Main} />
-              <Route path='/update' component={UpdateBanner} />
-      </Router>  
-      
+                    <Route path="/app/banner" component={Banner} /> 
+                    <Route path="/app/dashboard" component={Dashboard} /> 
+                    <Route path="/app/main" component={Main} />                                           
+                    <Route path="/app/services" component={Services} /> 
+                    <Route path="/app/team" component={Team} /> 
+                </main>
 
+            </Router>
+
+        </div>        
     )    
   }
 }

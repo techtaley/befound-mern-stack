@@ -7,18 +7,21 @@ export default function Services(){
     const [ url, setUrl ] = useState('')
     const [ name, setName ] = useState('')
     const [ desc, setDesc] = useState('')
+
     const [ entries, getEntries ] = useState([])
+
     const [ newUrl, setNewUrl ] = useState('')
     const [ newName, setNewName ] = useState('')
     const [ newDesc, setNewDesc ] = useState('')
 
     //axios - stringifies JSON data
+    //gets data from the db and displays on page
     useEffect(() => {
         async function fetchEntries(){
-            axios.get('http://localhost:4000/services')
-            .then((response) => {
-                const data = response.data
-                getEntries(response.data)
+            axios.get('http://localhost:4000/api/services')
+            .then((res) => {
+                const data = res.data
+                getEntries(data)
                 console.log(data)
             }) 
             .catch((err) => {
@@ -35,7 +38,7 @@ export default function Services(){
         e.preventDefault()
 
         //axios uses the post method on the url to send data to database from state
-        axios.post('http://localhost:4000/services', {
+        axios.post('http://localhost:4000/api/services', {
             url: url,
             name: name,
             desc: desc
@@ -59,7 +62,7 @@ export default function Services(){
     }  
     
     const updateEntry = (id) => {
-        axios.put('http://localhost:4000/update', {
+        axios.put('http://localhost:4000/api/services', {
             id: id,
             newUrl: newUrl,
             newName: newName,
@@ -68,7 +71,7 @@ export default function Services(){
     }
 
     const deleteEntry = (id) => {
-        axios.delete(`http://localhost:4000/services/${id}`)
+        axios.delete(`http://localhost:4000/api/services/${id}`)
     }    
 
     return (
@@ -120,7 +123,7 @@ export default function Services(){
                 <h1 className="heading">Update Services</h1>                
                   { entries.map((entry, id) => {
                         return (
-                            <div className="entries" id={id}>
+                            <div className="entries" key={id}>
                                 <div className="new_entries">    
                                     <h5>{entry.name}</h5>
                                     <img className="entry-img" 

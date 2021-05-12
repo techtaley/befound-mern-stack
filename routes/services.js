@@ -2,8 +2,11 @@ const express = require("express")
 const router = express.Router()
 const Services = require("../models/services.model")
 
+//const auth = require('./middleware/auth')
+//const auth = require('./auth')
+
 //CREATE 1) new services instance from form, 2) save and send to db
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
     const servicesInstance = new Services({ 
         url: req.body.url,
         name: req.body.name,
