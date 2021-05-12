@@ -21,8 +21,4 @@ Gallery section
 
 #CICD - Viewable on Github.  Deployed on Heroku.  #Endpoints:
 
-    https://befound-mern-app.herokuapp.com/banner
-    https://befound-mern-app.herokuapp.com/services
-    https://befound-mern-app.herokuapp.com/team
-    https://befound-mern-app.herokuapp.com/main
-
+    https://befound-mern-app.herokuapp.com/
