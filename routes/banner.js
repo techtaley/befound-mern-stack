@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Banner = require("../models/banner.model")
 
-const auth = require('./auth')
+const auth = require('./auth') 
 
 //CREATE 1) new banner instance from form, 2) save and send to db
 router.post('/', auth, async (req, res) => {

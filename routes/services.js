@@ -7,7 +7,7 @@ const Services = require("../models/services.model")
 
 //CREATE 1) new services instance from form, 2) save and send to db
 router.post('/', async (req, res) => {
-    const servicesInstance = new Services({ 
+    const servicesInstance = new Services({  
         url: req.body.url,
         name: req.body.name,
         desc: req.body.desc,

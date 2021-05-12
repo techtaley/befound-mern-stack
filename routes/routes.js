@@ -79,7 +79,7 @@ router.get('/user', async (req, res) => {
         //const cookie = req.headers['x-access-header']  
         const cookie = req.cookies['jwt']
         //res.send(cookie) //Test Works!    
-        const authenticate = jwt.verify(cookie, jwtSecret)    
+        const authenticate = jwt.verify(cookie, jwtSecret)     
         //res.send(authenticate)  //Test Works! - sends _id and iat
 
         //always use * _id

@@ -3,7 +3,7 @@ const router = express.Router()
 const Team = require("../models/team.model")
 
 //const auth = require('./middleware/auth')
-const auth = require('./auth')
+const auth = require('./auth') 
 
 //CREATE 1) new tea, instance from form, 2) save and send to db
 router.post('/', auth, async (req, res) => {

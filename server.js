@@ -49,7 +49,7 @@ app.use(cors({
 
 //server endpoints using routes
 app.use('/api', require('./routes/routes'))
-app.use('/api/auth', require('./routes/auth'))  
+app.use('/api/auth', require('./routes/auth'))   
 app.use('/api/banner', require('./routes/banner'))  
 app.use('/api/services', require('./routes/services'))  
 app.use('/api/team', require('./routes/team'))
