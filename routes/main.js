@@ -2,8 +2,12 @@ const express = require("express")
 const router = express.Router()
 const Main = require("../models/main.model")
 
+//const auth = require('./routes')
+//const auth = require('./middleware/auth')
+
+
 //CREATE 1) new main instance from form, 2) save and send to db
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
     const mainInstance = new Main({ 
         firstquote: req.body.firstquote,
         secondquote: req.body.secondquote,  

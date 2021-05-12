@@ -14,7 +14,7 @@ export default class UpdateBanner extends Component{
 
     //when program loads, display a banner item by id from db into state
     compoundDidMount(){
-        axios.get('http://localhost:4000/banner/'+this.match.body.id)
+        axios.get('http://localhost:4000/api/banner/'+this.match.body.id)
         .then(res => {
             this.setState({
                 url:  res.data.url,
@@ -48,7 +48,7 @@ export default class UpdateBanner extends Component{
         }     
                 
         //axios uses the post method on the url to send payload to database
-        axios.post('http://localhost:4000/banner/update/'+this.match.params.id, payload)
+        axios.post('http://localhost:4000/api/banner/update/'+this.match.params.id, payload)
         .then(() => {
             console.log('Data has been sent to the server')
             this.resetState()

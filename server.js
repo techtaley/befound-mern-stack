@@ -1,15 +1,12 @@
 const express = require('express')
 require('dotenv').config()
+
 const app = express()
 const mongoose = require('mongoose')
 
-//const loginRoute = require('./routes/login')
-const bannerRoute = require('./routes/banner')
-const servicesRoute = require('./routes/services')
-const mainRoute = require('./routes/main')
-const teamRoute = require('./routes/team')
-
 const cors = require('cors')
+
+const cookieParser = require('cookie-parser')
 
 const morgan = require('morgan')
 const path = require('path')
@@ -43,12 +40,19 @@ if(process.env.NODE_ENV === 'production'){
 //HTTP request logger
 app.use(morgan('tiny'))
 app.use(express.json())
-app.use(cors())
+app.use(cookieParser())
+app.use(cors({
+    credentials: true,  //exchanges the cookies from BE to FE
+    origin: ['http://localhost:3000']  //need port of FE
+}))
 
-//app.use('/login', loginRoute)  // localhost/dashboard
-app.use('/banner', bannerRoute)  // localhost/banner
-app.use('/services', servicesRoute)  // localhost/services
-app.use('/team', teamRoute)  // localhost/team
-app.use('/main', mainRoute)  // localhost/main
+
+//server endpoints using routes
+app.use('/api', require('./routes/routes'))
+app.use('/api/auth', require('./routes/auth'))  
+app.use('/api/banner', require('./routes/banner'))  
+app.use('/api/services', require('./routes/services'))  
+app.use('/api/team', require('./routes/team'))
+app.use('/api/main', require('./routes/main')) 
 
 app.listen(PORT, () => console.log(`Server is up and running ${PORT}`))

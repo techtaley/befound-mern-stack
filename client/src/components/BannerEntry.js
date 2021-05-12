@@ -14,7 +14,7 @@ export default function BannerEntry({id, title, desc, url, alt}){
     //1) delete banner entry by id from database 
     //2) delete entry from state - filter to show all except deleted entry
     const deleteEntry = (id) => {
-        axios.delete('http://localhost:4000/banner/'+id)
+        axios.delete('http://localhost:4000/api/banner/'+id)
             .then(res => console.log(res.data))
 
         // this.setState({
