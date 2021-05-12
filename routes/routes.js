@@ -70,23 +70,27 @@ router.post('/login', async (req, res) => {
      }
 }) 
 
-//Postman Testing - Simulates Authenticating user  
-//**Use /routes/auth.js to set up real authentication
+//Postman Testing - Simulates Authenticating user /routes/auth.js to set up real authentication
 
 // gets the jwt cookie from BE via FE to get authenticated user
 // decode cookie to it exists
 router.get('/user', async (req, res) => {
     try {
+        //const cookie = req.headers['x-access-header']  
         const cookie = req.cookies['jwt']
         //res.send(cookie) //Test Works!    
-        const authenticated = jwt.verify(cookie, jwtSecret)    
-        //res.send(authenticated)  //Test Works! - sends _id and iat
+        const authenticate = jwt.verify(cookie, jwtSecret)    
+        //res.send(authenticate)  //Test Works! - sends _id and iat
 
         //always use * _id
-        const user = await User.findOne({_id: authenticated._id})
+        const verified = await User.findOne({_id: authenticate._id})
         //res.send(user) //sends all data with password  
-        res.send({_id: user._id})  //only shows id
+        res.send({_id: verified._id})  //only shows id
 
+        //add verified user from payload
+        //*****figure out how to add the verified use to the payload******
+
+        req.user = verified      
         //another option: destructoring
         //const { password, ...data } = user.toJSON()    
         //res.send(data)  //data with no password
