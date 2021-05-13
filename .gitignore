@@ -7,3 +7,4 @@ client/src/working_files
 clients/src/videos
 client/src/images 
 routes/auth.js
+routes/routes.js
