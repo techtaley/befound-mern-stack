@@ -22,5 +22,6 @@ Blog posts with comments
 Task #4
 Gallery section
 
-Deployed to Heroku: https://befound-mern-app.herokuapp.com
+Deployment: https://befound-mern-app.herokuapp.com
+
 Endpoint: https://webdata-api.herokuapp.com/
