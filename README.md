@@ -22,4 +22,4 @@ Blog posts with comments
 Task #4
 Gallery section
 
-#CICD - Viewable on Github.  Deployed on Heroku.  #Endpoints: https://befound-mern-app.herokuapp.com
+Deployed on Heroku: https://befound-mern-app.herokuapp.com
