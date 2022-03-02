@@ -1,7 +1,7 @@
 const express = require('express')
 require('dotenv').config()
 
-const app = express()
+const app = express()  
 const mongoose = require('mongoose')
 
 const cors = require('cors')
@@ -46,13 +46,32 @@ app.use(cors({
     origin: ['http://localhost:3000']  //need port of FE
 }))
 
+app.get("/", (req, res) => res.send("Welcome to server for Befound.")) 
+
 
 //server endpoints using routes
-app.use('/api', require('./routes/routes'))
-app.use('/api/auth', require('./routes/auth'))   
-app.use('/api/banner', require('./routes/banner'))  
+app.use('/api', require('./routes/routes'))  //pulls jwt routes from in routes.js 
+
+app.use('/api/banner', require('./routes/banner'))  //these are regular routes
 app.use('/api/services', require('./routes/services'))  
 app.use('/api/team', require('./routes/team'))
 app.use('/api/main', require('./routes/main')) 
+
+app.use('/api/auth', require('./routes/auth'))  //auth route verifies move to next() which would be app.listen
+        
+
+
+/*  move to top
+const jwt = require('jsonwebtoken')
+const jwtSecret = process.env.TOKEN_SECRET
+*/
+
+//8/16 Authentication routes 
+//app.post("/api/login" 
+//app.get("/api/user"
+//app.post("/api/logout"
+//app.delete("/api/user/:userId", verify)
+
+//8/16 move const auth = async(req, res, next) => {  from auth.js to server.js
 
 app.listen(PORT, () => console.log(`Server is up and running ${PORT}`))

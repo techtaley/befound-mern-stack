@@ -4,7 +4,9 @@ const jwtSecret = process.env.TOKEN_SECRET
 // gets the jwt cookie from BE via FE to get authenticated user
 // opposite of signing jwt - decode cookie to verify a cookie exists
 
- const auth = async(req, res, next) => {
+//8/16 move this to server.js with const jwt and jwtSecret at the top
+
+ const auth = async(req, res, next) => {  
     try {
         //const cookie = req.headers['x-access-header']  
         const cookie = req.cookies['jwt']
@@ -24,7 +26,10 @@ const jwtSecret = process.env.TOKEN_SECRET
         //add verified user from payload
         //*****figure out how to add the verified use to the payload******
 
-        req.user = verified      
+        req.user = verified  
+        //8/16 missing next()   
+        next()
+
         //res.send(user) //sends all data with password  
         //res.send({_id: user._id})  //only shows id
 
@@ -34,7 +39,10 @@ const jwtSecret = process.env.TOKEN_SECRET
     } catch(err){
         return res.status(401).send({ message: 'Unauthenticated'}) 
     } 
- }          
+ } 
+ 
+
+
 //    try {
 //         const cookie = req.header['x-access-token']  
 //         if(!cookie) return res.status(401).send({ message: 'No cookie found.' })

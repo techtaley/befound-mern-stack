@@ -1,8 +1,13 @@
 .env
 node_modules
-data.json
 client/src/test.http
 test.http
 client/src/working_files
 clients/src/videos
 client/src/images
+models
+routes
+data_backup.json
+default.json
+package-lock.json
+server.js

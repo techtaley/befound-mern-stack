@@ -1,6 +1,6 @@
 //create user route and export to server
 const express = require("express")
-const router = express.Router()
+const router = express.Router()  
 const User = require('../models/user.model')
 const bcrypt = require('bcryptjs')
 
@@ -39,6 +39,9 @@ router.post('/register', async (req, res) => {
     //res.send({userId: savedUser._id})  //just sends back user id
 })  
 
+//8/16 ?move to server.js as app.post("/api/login" as first after app.use
+//8/16 - Yes! is router.post() using const router = express.Router() the same as app.post with const app = express()
+
 //authenticate the user by username and password
 router.post('/login', async (req, res) => { 
     const user = await User.findOne({ email: req.body.email })    
@@ -72,6 +75,8 @@ router.post('/login', async (req, res) => {
 
 //Postman Testing - Simulates Authenticating user /routes/auth.js to set up real authentication
 
+//8/16 - maybe move to server.js as app.get("/api/user" as second after app.use
+
 // gets the jwt cookie from BE via FE to get authenticated user
 // decode cookie to it exists
 router.get('/user', async (req, res) => {
@@ -98,6 +103,8 @@ router.get('/user', async (req, res) => {
         return res.status(401).send({ message: 'Unauthenticated'}) 
     }   
 })    
+
+//8/16 - maybe move to server.js as app.post("/api/logout" as third after app.use
 
 router.post('/logout', async (req, res) => {
     //token sent to browser and stored as a cookie
