@@ -6,7 +6,9 @@ client/src/working_files
 clients/src/videos
 client/src/images
 models
-routes
+routes/routes.js
+routes/auth.js
+data2.json
 data_backup.json
 default.json
 package-lock.json
